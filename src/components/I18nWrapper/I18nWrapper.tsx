@@ -18,10 +18,12 @@ async function loadZodLocale(lang: string = "en") {
         const selected = localeMap[lang] ?? locales.en;
 
         z.config(selected());
-    } catch {
-        // fallback safety
-        const locales = await import("zod/v4/locales");
-        z.config(locales.en());
+    } catch (error) {
+        // will use default en locale
+        console.error(
+            `Failed to load and configure Zod locale for "${lang}".`,
+            error
+        );
     }
 }
 
