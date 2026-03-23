@@ -1,8 +1,8 @@
 import { Select } from "@adgytec/adgytec-web-ui-components";
 import type { Key } from "react-aria-components";
 import { useTSettings } from "@/hooks/translations/useT";
-import { languages, languagesKeys } from "@/i18n/languages";
-import type { LanguageKey } from "@/i18n/types";
+import { languages } from "@/i18n/languages";
+import { type LanguageKey, languagesKeys } from "@/i18n/types";
 import type { LanguageSelectorProps } from "./type";
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
