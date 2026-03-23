@@ -1,0 +1,33 @@
+/* fonts are from: https://www.fontshare.com/ */
+
+@font-face {
+    font-family: "Satoshi";
+    src:
+        url("/fonts/satoshi/Satoshi-Variable.woff2") format("woff2"),
+        url("/fonts/satoshi/Satoshi-Variable.woff") format("woff");
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src:
+        url("/fonts/satoshi/Satoshi-VariableItalic.woff2") format("woff2"),
+        url("/fonts/satoshi/Satoshi-VariableItalic.woff") format("woff");
+    font-weight: 300 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cabinet Grotesk";
+    src:
+        url("/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2")
+        format("woff2"),
+        url("/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff")
+        format("woff");
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
