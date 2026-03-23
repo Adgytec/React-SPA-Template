@@ -5,7 +5,8 @@ import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 import { getEnvVar } from "@/utils/env/env";
 import { currency, datetime, number } from "./formatters";
-import { defaultLanguage, languagesKeys } from "./languages";
+import { defaultLanguage } from "./languages";
+import { languagesKeys } from "./types";
 
 export const defaultNS = "auth-card";
 

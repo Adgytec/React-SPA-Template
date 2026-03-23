@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from "node:url";
 import babel from "@rolldown/plugin-babel";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import Sonda from "sonda/vite";
 import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ mode }) => {
@@ -30,12 +31,16 @@ export default defineConfig(({ mode }) => {
             }),
             react(),
             babel({ presets: [reactCompilerPreset()] }),
+            Sonda(),
         ],
 
         resolve: {
             alias: {
                 "@": fileURLToPath(new URL("./src", import.meta.url)),
             },
+        },
+        build: {
+            sourcemap: true,
         },
 
         server: {

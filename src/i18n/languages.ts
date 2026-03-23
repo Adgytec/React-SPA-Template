@@ -13,5 +13,4 @@ export const languages: Language[] = [
     },
 ];
 
-export const languagesKeys = languages.map((lng) => lng.key);
 export const defaultLanguage: LanguageKey = "en";
