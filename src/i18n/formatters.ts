@@ -97,10 +97,7 @@ export const fileSize = (
 
     const value = bytes / 1024 ** i;
 
-    const formatted =
-        value % 1 === 0
-            ? number(value, lng, { maximumFractionDigits: 0 })
-            : number(value, lng, { maximumFractionDigits: 2 });
+    const formatted = number(value, lng, { maximumFractionDigits: 2 });
 
     return `${formatted} ${units[i]}`;
 };
