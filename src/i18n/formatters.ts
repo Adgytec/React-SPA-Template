@@ -75,3 +75,28 @@ export const datetime = (
 ) => {
     return new Intl.DateTimeFormat(qualifiedLngFor(lng), options).format(value);
 };
+
+export const fileSize = (
+    bytes: number,
+    lng: string = defaultLanguage,
+    _?: unknown
+) => {
+    if (!Number.isFinite(bytes) || bytes < 0) return "";
+    if (bytes === 0) return "0 B";
+
+    const units = ["B", "KB", "MB", "GB", "TB"];
+
+    const i = Math.min(
+        Math.floor(Math.log(bytes) / Math.log(1024)),
+        units.length - 1
+    );
+
+    const value = bytes / 1024 ** i;
+
+    const formatted =
+        value % 1 === 0
+            ? number(value, lng, { maximumFractionDigits: 0 })
+            : number(value, lng, { maximumFractionDigits: 2 });
+
+    return `${formatted} ${units[i]}`;
+};
