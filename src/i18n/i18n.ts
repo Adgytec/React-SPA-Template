@@ -4,7 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 import { getEnvVar } from "@/utils/env/env";
-import { currency, datetime, number } from "./formatters";
+import { currency, datetime, fileSize, number } from "./formatters";
 import { defaultLanguage } from "./languages";
 import { languagesKeys } from "./types";
 
@@ -33,5 +33,6 @@ i18n.use(Backend)
 i18n.services.formatter?.add("number", number);
 i18n.services.formatter?.add("currency", currency);
 i18n.services.formatter?.add("datetime", datetime);
+i18n.services.formatter?.add("filesize", fileSize);
 
 export default i18n;
