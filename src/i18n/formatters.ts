@@ -76,6 +76,10 @@ export const datetime = (
     return new Intl.DateTimeFormat(qualifiedLngFor(lng), options).format(value);
 };
 
+/**
+ * Formats bytes into a human-readable size (B → TB) using base-1024 scaling.
+ * Uses a custom implementation since the app only handles sizes up to ~100GB and already has number localization.
+ */
 export const fileSize = (
     bytes: number,
     lng: string = defaultLanguage,
