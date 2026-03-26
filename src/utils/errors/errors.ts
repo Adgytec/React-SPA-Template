@@ -1,8 +1,10 @@
 import {
+    commonCodes,
     type FormValidationFailed as FormErrorValue,
     flattenFieldNodes,
     formCodes,
     formFieldTypes,
+    normalizeError,
     parseError,
 } from "@adgytec/adgytec-web-utils";
 import type { I18nResources } from "types/i18next-resources";
@@ -19,6 +21,8 @@ type HandleError = (err: unknown) =>
           zodError: boolean; // tells if custom error parsing logic can be used or not
       };
 
+type BaseErrorTranslationKey = keyof I18nResources["common/errors/base"];
+
 export const handleError: HandleError = (err) => {
     const errValue = parseError(err);
 
@@ -30,7 +34,20 @@ export const handleError: HandleError = (err) => {
         };
     }
 
-    return { type: "base-error", value: "", zodError: true };
+    const isZodError = errValue.code === commonCodes.zodError;
+
+    // normalize error
+    const normalizedErrValue = normalizeError(errValue);
+    const errMessage = i18n.exists(normalizedErrValue.key, {
+        ns: "common/errors/base",
+    })
+        ? i18n.t(normalizedErrValue.key as BaseErrorTranslationKey, {
+              ...normalizedErrValue,
+              ns: "common/errors/base",
+          })
+        : i18n.t("unexpected-error", { ns: "common/errors/base" });
+
+    return { type: "base-error", value: errMessage, zodError: isZodError };
 };
 
 type HandleFormError = (errValue: FormErrorValue) => Record<string, string[]>;
