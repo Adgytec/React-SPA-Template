@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@adgytec/adgytec-web-ui-components": "^1.1.4",
-        "@adgytec/adgytec-web-utils": "^0.0.5",
+        "@adgytec/adgytec-web-utils": "^0.0.6",
         "@tanstack/react-query": "^5.94.5",
         "@tanstack/react-router": "^1.168.2",
         "clsx": "^2.1.1",
