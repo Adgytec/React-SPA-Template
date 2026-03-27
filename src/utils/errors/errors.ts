@@ -38,10 +38,10 @@ export const handleError: HandleError = (err) => {
 
     // normalize error
     const normalizedErrValue = normalizeError(errValue);
-    const errMessage = i18n.exists(normalizedErrValue.key, {
+    const errMessage = i18n.exists(normalizedErrValue.code, {
         ns: "common/errors/base",
     })
-        ? i18n.t(normalizedErrValue.key as BaseErrorTranslationKey, {
+        ? i18n.t(normalizedErrValue.code as BaseErrorTranslationKey, {
               ...normalizedErrValue,
               ns: "common/errors/base",
           })
