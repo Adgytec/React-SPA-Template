@@ -13,4 +13,4 @@ export const languages: Language[] = [
     },
 ];
 
-export const defaultLanguage: LanguageKey = "en";
+export const defaultLanguage: LanguageKey = "fr";
