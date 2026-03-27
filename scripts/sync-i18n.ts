@@ -10,12 +10,10 @@ const I18NEXT_MODULE_PATH = path.join(TYPES_DIR, "i18next.d.ts");
 // The static content for your i18next module declaration
 const i18nextModuleContent = `import "i18next";
 
-import type { defaultNS } from "../src/i18n/i18n";
 import type { I18nResources } from "./i18next-resources";
 
 declare module "i18next" {
     interface CustomTypeOptions {
-        defaultNS: typeof defaultNS;
         resources: I18nResources;
     }
 }

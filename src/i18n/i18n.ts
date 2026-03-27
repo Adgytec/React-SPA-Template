@@ -5,19 +5,16 @@ import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 import { getEnvVar } from "@/utils/env/env";
 import { currency, datetime, fileSize, number } from "./formatters";
+import { defaultLanguage } from "./languages";
 import { languagesKeys } from "./types";
-
-export const defaultNS = "auth-card";
 
 i18n.use(Backend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
         load: "languageOnly",
-        fallbackLng: false,
+        fallbackLng: defaultLanguage,
         supportedLngs: languagesKeys,
-        ns: [defaultNS],
-        defaultNS: defaultNS,
         backend: {
             loadPath: getEnvVar("VITE_TRANSLATION_CDN"),
             crossDomain: true,
