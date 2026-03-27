@@ -76,6 +76,8 @@ export const datetime = (
     return new Intl.DateTimeFormat(qualifiedLngFor(lng), options).format(value);
 };
 
+const units = ["B", "KB", "MB", "GB", "TB"] as const;
+
 /**
  * Formats bytes into a human-readable size (B → TB) using base-1024 scaling.
  * Uses a custom implementation since the app only handles sizes up to ~100GB and already has number localization.
@@ -86,18 +88,18 @@ export const fileSize = (
     _?: unknown
 ) => {
     if (!Number.isFinite(bytes) || bytes < 0) return "";
-    if (bytes === 0) return "0 B";
 
-    const units = ["B", "KB", "MB", "GB", "TB"];
+    let value = bytes;
+    let i = 0;
+    if (bytes >= 1) {
+        i = Math.min(
+            Math.floor(Math.log(bytes) / Math.log(1024)),
+            units.length - 1
+        );
 
-    const i = Math.min(
-        Math.floor(Math.log(bytes) / Math.log(1024)),
-        units.length - 1
-    );
-
-    const value = bytes / 1024 ** i;
+        value = bytes / 1024 ** i;
+    }
 
     const formatted = number(value, lng, { maximumFractionDigits: 2 });
-
     return `${formatted} ${units[i]}`;
 };
