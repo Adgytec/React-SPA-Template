@@ -4,7 +4,7 @@ export const languagesKeys = ["en", "fr"] as const;
 export type LanguageKey = (typeof languagesKeys)[number];
 
 export type LanguageLabels =
-    keyof I18nResources["settings"]["language"]["selection"];
+    keyof I18nResources["common/settings"]["language"]["selection"];
 
 export type Language = {
     key: LanguageKey;
