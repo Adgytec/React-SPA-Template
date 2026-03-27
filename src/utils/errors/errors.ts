@@ -38,14 +38,16 @@ export const handleError: HandleError = (err) => {
 
     // normalize error
     const normalizedErrValue = normalizeError(errValue);
-    const errMessage = i18n.exists(normalizedErrValue.code, {
-        ns: "common/errors/base",
-    })
-        ? i18n.t(normalizedErrValue.code as BaseErrorTranslationKey, {
-              ...normalizedErrValue,
-              ns: "common/errors/base",
-          })
-        : i18n.t("unexpected-error", { ns: "common/errors/base" });
+    const errMessage = i18n.t(
+        [
+            normalizedErrValue.code as BaseErrorTranslationKey,
+            "unexpected-error",
+        ],
+        {
+            ...normalizedErrValue,
+            ns: "common/errors/base",
+        }
+    );
 
     return { type: "base-error", value: errMessage, zodError: isZodError };
 };
@@ -61,23 +63,20 @@ const handleFormError: HandleFormError = (errValue) => {
     for (const [key, values] of Object.entries(flattendError)) {
         translatedMessages[key] = values.map((err) => {
             if (err.type === formFieldTypes.invalid) {
-                return i18n.exists(err.details.cause, {
-                    ns: "common/errors/forms",
-                })
-                    ? i18n.t(err.details.cause as FormErrorTranslationKey, {
-                          ...err.details,
-                          ns: "common/errors/forms",
-                      })
-                    : i18n.t("unknown", { ns: "common/errors/forms" });
+                return i18n.t(
+                    [err.details.cause as FormErrorTranslationKey, "unknown"],
+                    {
+                        ...err.details,
+                        ns: "common/errors/forms",
+                    }
+                );
             }
 
             const details = "details" in err ? err.details : {};
-            return i18n.exists(err.type, { ns: "common/errors/forms" })
-                ? i18n.t(err.type as FormErrorTranslationKey, {
-                      ...details,
-                      ns: "common/errors/forms",
-                  })
-                : i18n.t("unknown", { ns: "common/errors/forms" });
+            return i18n.t([err.type as FormErrorTranslationKey, "unknown"], {
+                ...details,
+                ns: "common/errors/forms",
+            });
         });
     }
 
