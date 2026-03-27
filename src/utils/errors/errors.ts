@@ -10,7 +10,7 @@ import {
 import type { I18nResources } from "types/i18next-resources";
 import i18n from "@/i18n/i18n";
 
-type HandleError = (err: unknown) =>
+type HandleError = (err: unknown) => Promise<
     | {
           type: "field-error";
           value: Record<string, string[]>;
@@ -19,21 +19,23 @@ type HandleError = (err: unknown) =>
           type: "base-error";
           value: string;
           zodError: boolean; // tells if custom error parsing logic can be used or not
-      };
+      }
+>;
 
 type BaseErrorTranslationKey = keyof I18nResources["common/errors/base"];
 
-export const handleError: HandleError = (err) => {
+export const handleError: HandleError = async (err) => {
     const errValue = parseError(err);
 
     if (errValue.code === formCodes.formValidationFailed) {
-        const formErrors = handleFormError(errValue);
+        const formErrors = await handleFormError(errValue);
         return {
             type: "field-error",
             value: formErrors,
         };
     }
 
+    await i18n.loadNamespaces("common/errors/base");
     const isZodError = errValue.code === commonCodes.zodError;
 
     // normalize error
@@ -52,9 +54,13 @@ export const handleError: HandleError = (err) => {
     return { type: "base-error", value: errMessage, zodError: isZodError };
 };
 
-type HandleFormError = (errValue: FormErrorValue) => Record<string, string[]>;
+type HandleFormError = (
+    errValue: FormErrorValue
+) => Promise<Record<string, string[]>>;
 
-const handleFormError: HandleFormError = (errValue) => {
+const handleFormError: HandleFormError = async (errValue) => {
+    await i18n.loadNamespaces("common/errors/forms");
+
     const flattendError = flattenFieldNodes(errValue.details);
     const translatedMessages: Record<string, string[]> = {};
 
