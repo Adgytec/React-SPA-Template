@@ -4,12 +4,12 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "sync-types": "tsx scripts/sync-i18n.ts",
-        "dev": "npm run sync-types && vite",
+        "sync-translation": "tsx scripts/sync-i18n.ts",
+        "dev": "npm run sync-translation && vite",
         "lint": "biome check .",
         "lint:fix": "biome check --write .",
         "typecheck": "tsc -b",
-        "build": "npm run sync-types && npm run lint && npm run typecheck && vite build",
+        "build": "npm run sync-translation && npm run lint && npm run typecheck && vite build",
         "format": "biome format --write .",
         "preview": "vite preview"
     },

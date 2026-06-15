@@ -4,26 +4,22 @@ export interface I18nResources {
     "accounts/auth-card": {
         heading: string;
         description: string;
-        actionButton: {
-            enabled: string;
-            pending: string;
-            completed: string;
-        };
-        confirmActionButton: {
-            enabled: string;
-            pending: string;
-            completed: string;
-        };
-        resendCodeButton: {
-            enabled: string;
-            pending: string;
-            error: string;
-        };
+        actionButton: string;
+        confirmActionButton: string;
+        resendCodeButton: string;
         resendCooldown: {
-            remaining: string;
-            remaining_plural: string;
+            remaining_one: string;
+            remaining_other: string;
         };
         invalidConfirmAuthActionCode: string;
+    };
+    "accounts/core": {
+        "edit-profile": string;
+        "social-links": {
+            heading: string;
+            empty: string;
+        };
+        "user-info": string;
     };
     "common/do-auth": {
         heading: string;
@@ -50,6 +46,7 @@ export interface I18nResources {
         "invalid-actor": string;
         "permission-explicitly-denied": string;
         "missing-permission": string;
+        "limit-exceeded": string;
         "invalid-multipart-upload-part-number": string;
         "object-not-found": string;
         "media-too-large": string;
@@ -103,25 +100,38 @@ export interface I18nResources {
     "common/labels": {
         email: string;
         code: string;
+        birthday: {
+            heading: string;
+            empty: string;
+        };
+        about: {
+            heading: string;
+            empty: string;
+        };
+        name: {
+            heading: string;
+            empty: string;
+        };
     };
     "common/settings": {
-        popover: string;
+        heading: string;
         theme: {
             heading: string;
             description: string;
-            selection: {
-                system: string;
-                light: string;
-                dark: string;
-            };
+            system: string;
+            light: string;
+            dark: string;
         };
-        shape: {
+        contrast: {
             heading: string;
             description: string;
-            selection: {
-                sharp: string;
-                round: string;
-            };
+            standard: string;
+            medium: string;
+            high: string;
+        };
+        monochrome: {
+            heading: string;
+            description: string;
         };
         language: {
             heading: string;
@@ -135,5 +145,7 @@ export interface I18nResources {
     "common/utils": {
         unexpectedError: string;
         back: string;
+        user: string;
+        signout: string;
     };
 }
