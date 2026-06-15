@@ -5,6 +5,7 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import Sonda from "sonda/vite";
 import { defineConfig, loadEnv } from "vite";
+import optimizeLocales from "@react-aria/optimize-locales-plugin";
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd());
@@ -32,6 +33,11 @@ export default defineConfig(({ mode }) => {
             react(),
             babel({ presets: [reactCompilerPreset()] }),
             Sonda(),
+            {
+                ...optimizeLocales.vite({
+                    locales: ["en", "fr"],
+                }),
+            },
         ],
 
         resolve: {
