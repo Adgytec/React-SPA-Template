@@ -1,5 +1,4 @@
-import { defaultLanguage, languages } from "./languages";
-import type { QualifiedLngFor } from "./types";
+import { defaultLanguage, supportedLanguages } from "./languages";
 
 // https://phrase.com/blog/posts/localizing-react-apps-with-i18next/
 // reference from this article
@@ -19,13 +18,13 @@ if (typeof navigator !== "undefined" && Array.isArray(navigator.languages)) {
 }
 
 const fallbackRegionMap = new Map<string, string>();
-for (const { key, defaultRegion } of languages) {
+for (const { key, defaultRegion } of supportedLanguages) {
     fallbackRegionMap.set(key, `${key}-${defaultRegion}`);
 }
 
 // lang is always BCP 47 tag with only language value or lang-script value
 // always give priority to user preference even if lang with region is present in lower priority
-const qualifiedLngFor: QualifiedLngFor = (lng: string) => {
+const qualifiedLngFor = (lng: string) => {
     // memoized
     const cached = qualifiedCache.get(lng);
     if (cached) return cached;

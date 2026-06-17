@@ -1,16 +1,14 @@
-import type { Language, LanguageKey } from "./types";
-
-export const languages: Language[] = [
+export const supportedLanguages = [
     {
         key: "en",
-        label: "english",
         defaultRegion: "GB",
     },
     {
         key: "fr",
-        label: "french",
         defaultRegion: "FR",
     },
-];
+] as const;
 
-export const defaultLanguage: LanguageKey = "fr";
+export type SupportedLanguage = (typeof supportedLanguages)[number]["key"];
+
+export const defaultLanguage: SupportedLanguage = "fr";
