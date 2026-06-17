@@ -5,8 +5,7 @@ import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 import { getEnvVar } from "@/utils/env/env";
 import { currency, datetime, fileSize, number } from "./formatters";
-import { defaultLanguage } from "./languages";
-import { languagesKeys } from "./types";
+import { defaultLanguage, supportedLanguageKeys } from "./languages";
 
 i18n.use(Backend)
     .use(LanguageDetector)
@@ -14,7 +13,7 @@ i18n.use(Backend)
     .init({
         load: "languageOnly",
         fallbackLng: defaultLanguage,
-        supportedLngs: languagesKeys,
+        supportedLngs: supportedLanguageKeys,
         backend: {
             loadPath: getEnvVar("VITE_TRANSLATION_CDN"),
             crossDomain: true,
