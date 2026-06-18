@@ -33,11 +33,9 @@ export default defineConfig(({ mode }) => {
             react(),
             babel({ presets: [reactCompilerPreset()] }),
             Sonda(),
-            {
-                ...optimizeLocales.vite({
-                    locales: ["en", "fr"],
-                }),
-            },
+            optimizeLocales.vite({
+                locales: ["en", "fr"],
+            }),
         ],
 
         resolve: {

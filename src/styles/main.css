@@ -1,5 +1,5 @@
 :root {
-    --md-sys-typescale-font-brand: "Cabinet Grotesk", system-ui, sans;
+    --md-sys-typescale-font-brand: "Cabinet Grotesk", system-ui, sans-serif;
     --md-sys-typescale-font-plain: "Satoshi", system-ui, sans-serif;
 
     caret-color: var(--md-sys-color-primary);

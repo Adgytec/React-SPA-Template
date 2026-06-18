@@ -7,7 +7,7 @@ const TanStackRouterDevtools = lazy(() =>
 );
 
 const TanstackQueryDevtools = lazy(
-    () => import("../../integrations/tanstack-query/devtools.tsx")
+    () => import("../../integrations/tanstack-query/devtools")
 );
 
 export function Devtools() {

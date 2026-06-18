@@ -10,8 +10,8 @@ import "./styles/core/theme/base/base.css";
 import "./styles/core/core.css";
 import "./styles/main.css";
 
-import { ApplicationProvider } from "./components/ApplicationProvider/ApplicationProvider.tsx";
-import * as TanStackQueryProvider from "./integrations/tanstack-query/root-provider.tsx";
+import { ApplicationProvider } from "./components/ApplicationProvider/ApplicationProvider";
+import * as TanStackQueryProvider from "./integrations/tanstack-query/root-provider";
 
 // Create a new router instance
 const TanStackQueryProviderContext = TanStackQueryProvider.getContext();
