@@ -11,7 +11,7 @@ import { Languages, Palette, SettingsIcon } from "lucide-react";
 import { SubmenuTrigger } from "react-aria-components";
 import { useTranslation } from "react-i18next";
 import { useBoolean } from "usehooks-ts";
-import { useTSettings } from "@/hooks/translations/useT";
+import { useTSettings } from "@/hooks/translations";
 import {
     isValidLanguageKey,
     type SupportedLanguage,

@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@adgytec/adgytec-web-ui-components": "^2.1.7",
-        "@adgytec/adgytec-web-utils": "^0.0.8",
+        "@adgytec/adgytec-web-utils": "^0.1.0",
         "@tanstack/react-query": "^5.101.0",
         "@tanstack/react-router": "^1.170.15",
         "clsx": "^2.1.1",
@@ -55,5 +55,8 @@
         "tsx": "^4.22.4",
         "typescript": "~6.0.3",
         "vite": "^8.0.16"
+    },
+    "allowScripts": {
+        "esbuild@0.28.1": true
     }
 }

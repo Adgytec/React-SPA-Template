@@ -4,7 +4,7 @@ import {
     SideSheet,
     SideSheetModal,
 } from "@adgytec/adgytec-web-ui-components";
-import { useTSettings } from "@/hooks/translations/useT";
+import { useTSettings } from "@/hooks/translations";
 
 export const ThemeSelector: React.FC<{
     isOpen: boolean;
