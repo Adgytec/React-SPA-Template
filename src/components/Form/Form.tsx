@@ -21,7 +21,6 @@ export const Form: React.FC<
                 if (err.type === formFieldTypes.invalid) {
                     return t(err.details.cause, {
                         ...err.details,
-                        ns: "common/errors/forms",
                     });
                 }
 
@@ -29,12 +28,10 @@ export const Form: React.FC<
                     if (typeof err.details.max === "number")
                         return t("overflow-number", {
                             ...err.details,
-                            ns: "common/errors/forms",
                         });
 
                     return t("overflow-date", {
                         ...err.details,
-                        ns: "common/errors/forms",
                     });
                 }
 
@@ -42,19 +39,16 @@ export const Form: React.FC<
                     if (typeof err.details.min === "number")
                         return t("underflow-number", {
                             ...err.details,
-                            ns: "common/errors/forms",
                         });
 
                     return t("underflow-date", {
                         ...err.details,
-                        ns: "common/errors/forms",
                     });
                 }
 
                 const details = "details" in err ? err.details : {};
                 return t(err.type, {
                     ...details,
-                    ns: "common/errors/forms",
                 });
             });
         }
