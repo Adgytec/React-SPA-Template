@@ -14,6 +14,8 @@ i18n.use(Backend)
         load: "languageOnly",
         fallbackLng: defaultLanguage,
         supportedLngs: supportedLanguageKeys,
+        ns: "common/utils",
+        defaultNS: "common/utils",
         backend: {
             loadPath: getEnvVar("VITE_TRANSLATION_CDN"),
             crossDomain: true,
