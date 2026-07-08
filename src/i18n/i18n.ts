@@ -3,9 +3,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
+import { env } from "@/env";
 import { currency, datetime, fileSize, number } from "./formatters";
 import { defaultLanguage, supportedLanguageKeys } from "./languages";
-import { env } from "@/env";
 
 i18n.use(Backend)
     .use(LanguageDetector)
