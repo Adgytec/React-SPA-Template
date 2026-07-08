@@ -3,9 +3,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
-import { getEnvVar } from "@/utils/env/env";
 import { currency, datetime, fileSize, number } from "./formatters";
 import { defaultLanguage, supportedLanguageKeys } from "./languages";
+import { env } from "@/env";
 
 i18n.use(Backend)
     .use(LanguageDetector)
@@ -17,7 +17,7 @@ i18n.use(Backend)
         ns: "common/utils",
         defaultNS: "common/utils",
         backend: {
-            loadPath: getEnvVar("VITE_TRANSLATION_CDN"),
+            loadPath: env.VITE_TRANSLATION_CDN,
             crossDomain: true,
         },
         debug: import.meta.env.DEV,

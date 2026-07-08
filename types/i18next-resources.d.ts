@@ -1,17 +1,26 @@
 // AUTO-GENERATED FILE — DO NOT EDIT
 
 export interface I18nResources {
+    "accounts/auth-action-errors": {
+        "auth-client-not-exists": string;
+        "auth-limit-exceeded": string;
+        "code-mismatch": string;
+        "code-expired": string;
+        "auth-session-expired": string;
+        "user-already-confirmed": string;
+    };
     "accounts/auth-card": {
-        heading: string;
-        description: string;
-        actionButton: string;
-        confirmActionButton: string;
-        resendCodeButton: string;
+        authStartHeading: string;
+        authStartDescription: string;
+        authConfirmHeading: string;
+        authStartButton: string;
+        authConfirmButton: string;
+        authResendButton: string;
+        authResendSuccess: string;
         resendCooldown: {
             remaining_one: string;
             remaining_other: string;
         };
-        invalidConfirmAuthActionCode: string;
     };
     "accounts/core": {
         "edit-profile": string;
@@ -45,6 +54,7 @@ export interface I18nResources {
         "method-not-allowed": string;
         "network-error": string;
         "zod-error": string;
+        "validation-failed": string;
         "self-permission-mismatch": string;
         "invalid-actor": string;
         "permission-explicitly-denied": string;
@@ -76,45 +86,110 @@ export interface I18nResources {
         "media-upload-error": string;
     };
     "common/errors/forms": {
-        missing: string;
-        "overflow-number": string;
-        "underflow-number": string;
-        "overflow-date": string;
-        "underflow-date": string;
-        length: string;
-        invalid: string;
-        unknown: string;
-        "invalid-value": string;
-        "invalid-enum-value": string;
-        "require-https": string;
-        "missing-host": string;
-        "contains-path": string;
-        "contains-query": string;
-        "contains-fragment": string;
-        "absolute-url": string;
-        "nil-id": string;
-        "invalid-email": string;
-        "missing-mx-records": string;
-        "not-digit": string;
-        "not-base64-url-encoded": string;
-        "invalid-url": string;
-        "null-value": string;
+        validation_nil: string;
+        validation_empty: string;
+        validation_date_invalid: string;
+        validation_date_too_early: string;
+        validation_date_too_late: string;
+        validation_date_out_of_range: string;
+        validation_length_too_long: string;
+        validation_length_too_short: string;
+        validation_length_invalid: string;
+        validation_length_out_of_range: string;
+        validation_length_empty_required: string;
+        validation_key_wrong_type: string;
+        validation_key_missing: string;
+        validation_key_unexpected: string;
+        validation_min_greater_equal_than_required: string;
+        validation_max_less_equal_than_required: string;
+        validation_min_greater_than_required: string;
+        validation_max_less_than_required: string;
+        validation_required: string;
+        validation_nil_or_not_empty_required: string;
+        validation_in_invalid: string;
+        validation_match_invalid: string;
+        validation_multiple_of_invalid: string;
+        validation_not_in_invalid: string;
+        validation_not_nil_required: string;
+        validation_is_email: string;
+        validation_is_url: string;
+        validation_is_request_url: string;
+        validation_request_is_request_uri: string;
+        validation_is_alpha: string;
+        validation_is_digit: string;
+        validation_is_alphanumeric: string;
+        validation_is_utf_letter: string;
+        validation_is_utf_digit: string;
+        "validation_is utf_letter_numeric": string;
+        validation_is_utf_numeric: string;
+        validation_is_lower_case: string;
+        validation_is_upper_case: string;
+        validation_is_hexadecimal: string;
+        validation_is_hex_color: string;
+        validation_is_rgb_color: string;
+        validation_is_int: string;
+        validation_is_float: string;
+        validation_is_uuid_v3: string;
+        validation_is_uuid_v4: string;
+        validation_is_uuid_v5: string;
+        validation_is_uuid: string;
+        validation_is_credit_card: string;
+        validation_is_isbn_10: string;
+        validation_is_isbn_13: string;
+        validation_is_isbn: string;
+        validation_is_json: string;
+        validation_is_ascii: string;
+        validation_is_printable_ascii: string;
+        validation_is_multibyte: string;
+        validation_is_full_width: string;
+        validation_is_half_width: string;
+        validation_is_variable_width: string;
+        validation_is_base64: string;
+        validation_is_data_uri: string;
+        validation_is_e164_number: string;
+        validation_is_country_code_2_letter: string;
+        validation_is_country_code_3_letter: string;
+        validation_is_currency_code: string;
+        validation_is_dial_string: string;
+        validation_is_mac_address: string;
+        validation_is_ip: string;
+        validation_is_ipv4: string;
+        validation_is_ipv6: string;
+        validation_is_sub_domain: string;
+        validation_is_domain: string;
+        validation_is_dns_name: string;
+        validation_is_host: string;
+        validation_is_port: string;
+        validation_is_mongo_id: string;
+        validation_is_latitude: string;
+        validation_is_longitude: string;
+        validation_is_ssn: string;
+        validation_is_semver: string;
+        "unknown-error": string;
+        invalid_type: string;
+        too_big: string;
+        too_small: string;
+        date_too_big: string;
+        date_too_small: string;
+        string_too_long: string;
+        string_too_short: string;
+        invalid_format: string;
+        not_multiple_of: string;
+        unrecognized_keys: string;
+        invalid_union: string;
+        invalid_key: string;
+        invalid_element: string;
+        invalid_value: string;
+        custom: string;
     };
     "common/labels": {
         email: string;
         code: string;
-        birthday: {
-            heading: string;
-            empty: string;
-        };
-        about: {
-            heading: string;
-            empty: string;
-        };
-        name: {
-            heading: string;
-            empty: string;
-        };
+        back: string;
+        signout: string;
+        name: string;
+        about: string;
+        dob: string;
     };
     "common/settings": {
         heading: string;
@@ -144,11 +219,5 @@ export interface I18nResources {
                 fr: string;
             };
         };
-    };
-    "common/utils": {
-        unexpectedError: string;
-        back: string;
-        user: string;
-        signout: string;
     };
 }
