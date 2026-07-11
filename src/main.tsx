@@ -3,12 +3,12 @@ import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { routeTree } from "./routeTree.gen.ts";
 
-import "./i18n/i18n.ts";
+import "@/i18n/i18n.ts";
 
 // styles
-import "./styles/core/theme/base/base.css";
-import "./styles/core/core.css";
-import "./styles/main.css";
+import "@/styles/core/theme/base/base.css";
+import "@/styles/core/core.css";
+import "@/styles/main.css";
 
 import { ApplicationProvider } from "./components/ApplicationProvider/ApplicationProvider";
 import * as TanStackQueryProvider from "./integrations/tanstack-query/root-provider";
